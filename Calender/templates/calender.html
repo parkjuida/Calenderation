@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+        </tbody>
+    </table>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js">
+
+        function WriteTitle() {
+            var year = "{{this_year}}";
+            var month = "{{this_month}}";
+            document.write(year + "년 ");
+            document.write(month + "월");
+        }
+
+        function WriteCalendar() {
+            var calendar = "
+                <table class="calendar_table">
+                    <thead>
+                        <tr>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                            <th>토</th>
+                            <th>일</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
+            day = 1
+
+            for (var i = 0; i < 6; i++) {
+                calendar += "<tr>";
+                for (var k = 0; k < 6; k++) {
+                    if(i*7 + k < {{start_day}} || day > {{end_date}}) {
+                        calendar += "<td>## </td>";
+                    } else {
+                        calendar += "<td>" + day + " </td>";
+                        day++;
+                    }
+                }
+                calendar += "</tr>";
+            }
+            calendar += "</tbody></table>";
+            document.write(calendar);
+
+        }
+
+        document.write(year + "년 ");
+
+        WriteTitle();
+        WriteCalendar();
+    </script>
+</body>
+</html>
