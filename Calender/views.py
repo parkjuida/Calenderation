@@ -12,3 +12,8 @@ class FullCalenderView(View):
         end_date = calendar.monthrange(this_year, this_month)[1]
         return render(request, 'calender.html',
                       {'this_year': this_year, 'this_month': this_month, 'start_day': start_day, 'end_date': end_date})
+
+class DiaryView(View):
+    def get(self, request):
+        time = request.GET['time']
+        return render(request, 'diary.html', {'year': time, })

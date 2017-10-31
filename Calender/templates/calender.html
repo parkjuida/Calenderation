@@ -1,17 +1,39 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calendaration</title>
 </head>
 <body>
-
-
-
-        </tbody>
-    </table>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/semantic/semantic.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/calendar.css' %}">
+    <header>
+        <h1>{{this_year}}년 {{this_month}} 월</h1>
+    </header>
+    <section>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>월</th>
+                    <th>화</th>
+                    <th>수</th>
+                    <th>목</th>
+                    <th>금</th>
+                    <th>토</th>
+                    <th>일</th>
+                </tr>
+            </thead>
+            <tbody id="calendarTableBody">
+            </tbody>
+        </table>
+    </section>
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript">
         function WriteTitle() {
             var year = "{{this_year}}";
             var month = "{{this_month}}";
@@ -20,42 +42,39 @@
         }
 
         function WriteCalendar() {
-            var calendar = "
-                <table class="calendar_table">
-                    <thead>
-                        <tr>
-                            <th>월</th>
-                            <th>화</th>
-                            <th>수</th>
-                            <th>목</th>
-                            <th>금</th>
-                            <th>토</th>
-                            <th>일</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-            day = 1
+            var tableBody = document.getElementById("calendarTableBody");
+            var day = 1;
 
             for (var i = 0; i < 6; i++) {
-                calendar += "<tr>";
-                for (var k = 0; k < 6; k++) {
+                var tr = document.createElement("tr");
+                for (var k = 0; k < 7; k++) {
+                    var td = document.createElement("td");
                     if(i*7 + k < {{start_day}} || day > {{end_date}}) {
-                        calendar += "<td>## </td>";
+
                     } else {
-                        calendar += "<td>" + day + " </td>";
+                        var form = document.createElement("form");
+                        form.setAttribute('method', 'get');
+                        form.setAttribute('action', '{% url 'Diary_detail' %}');
+                        var input = document.createElement("input");
+                        input.setAttribute('type', 'hidden');
+                        input.setAttribute('name', 'time');
+                        var time = "{{this_year}}" + "-{{this_month}}" + "-" + day;
+                        input.setAttribute('value', time);
+                        var button = document.createElement("button");
+                        button.setAttribute('type', 'submit');
+                        var text = document.createTextNode(day);
+                        button.appendChild(text);
+                        form.appendChild(input);
+                        form.appendChild(button);
+                        td.appendChild(form);
                         day++;
                     }
+                    tr.appendChild(td);
                 }
-                calendar += "</tr>";
+                tableBody.appendChild(tr);
             }
-            calendar += "</tbody></table>";
-            document.write(calendar);
 
         }
-
-        document.write(year + "년 ");
-
-        WriteTitle();
         WriteCalendar();
     </script>
 </body>
