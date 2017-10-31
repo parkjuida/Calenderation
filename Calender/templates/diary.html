@@ -5,8 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-    {{year}}
-    {{month}}
-    {{day}}
+    <h1>{{time}} 의 일기</h1>
+    <form method="POST">{% csrf_token %}
+        {{form.as_p}}
+        <input type="hidden" name="date" value="{{time}}">
+        <button type="submit">Save</button>
+    </form>
 </body>
 </html>

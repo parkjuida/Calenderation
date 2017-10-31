@@ -28,12 +28,14 @@
             </tbody>
         </table>
     </section>
+    {{diary_dict}}
     <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
     <script type="text/javascript">
+        diary_dict = {{diary_dict|safe}};
         function WriteTitle() {
             var year = "{{this_year}}";
             var month = "{{this_month}}";
@@ -52,21 +54,35 @@
                     if(i*7 + k < {{start_day}} || day > {{end_date}}) {
 
                     } else {
+
                         var form = document.createElement("form");
                         form.setAttribute('method', 'get');
                         form.setAttribute('action', '{% url 'Diary_detail' %}');
+
                         var input = document.createElement("input");
                         input.setAttribute('type', 'hidden');
                         input.setAttribute('name', 'time');
+
                         var time = "{{this_year}}" + "-{{this_month}}" + "-" + day;
                         input.setAttribute('value', time);
+
                         var button = document.createElement("button");
                         button.setAttribute('type', 'submit');
+
                         var text = document.createTextNode(day);
                         button.appendChild(text);
+
                         form.appendChild(input);
                         form.appendChild(button);
                         td.appendChild(form);
+
+                        var div_diary = document.createElement("div");
+                        diary = diary_dict[day]
+                        if(!diary) {
+                        } else {
+                            div_diary.appendChild(document.createTextNode(diary));
+                        }
+                        td.appendChild(div_diary);
                         day++;
                     }
                     tr.appendChild(td);
@@ -77,5 +93,6 @@
         }
         WriteCalendar();
     </script>
+
 </body>
 </html>
