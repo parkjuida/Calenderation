@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.FullCalenderView.as_view()),
-    url(r'^Diary/$', views.DiaryView.as_view(), name='Diary_detail'),
+    url(r'^diary/$', views.DiaryList.as_view(), name='Diary'),
+    url(r'^diary_detail/$', views.DiaryDetail.as_view(), name='Diary_detail'),
 ]

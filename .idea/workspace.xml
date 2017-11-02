@@ -4,10 +4,10 @@
     <list default="true" id="9135c44e-08f8-4110-9a0f-f8de3b991275" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calender/models.py" afterPath="$PROJECT_DIR$/Calender/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calender/templates/calender.html" afterPath="$PROJECT_DIR$/Calender/templates/calender.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calender/templates/diary.html" afterPath="$PROJECT_DIR$/Calender/templates/diary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calender/urls.py" afterPath="$PROJECT_DIR$/Calender/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calender/views.py" afterPath="$PROJECT_DIR$/Calender/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calenderation/settings.py" afterPath="$PROJECT_DIR$/Calenderation/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/Calender/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
-              <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+              <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -78,8 +78,8 @@
       <file leaf-file-name="calender.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Calender/templates/calender.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+            <state relative-caret-position="154">
+              <caret line="108" column="36" lean-forward="true" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -88,11 +88,31 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Calender/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+            <state relative-caret-position="468">
+              <caret line="36" column="87" lean-forward="true" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diary.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Calender/templates/diary.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="diary_detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Calender/templates/diary_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,28 +125,6 @@
               <folding>
                 <element signature="e#647#688#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Calender/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="diary.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Calender/templates/diary.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -147,6 +145,10 @@
       <find>TEMPLATE</find>
       <find>L</find>
       <find>|</find>
+      <find>url</find>
+      <find>button</find>
+      <find>time</find>
+      <find>Diary</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,15 +161,16 @@
         <option value="$PROJECT_DIR$/Calender/url.py" />
         <option value="$PROJECT_DIR$/Calenderation/urls.py" />
         <option value="$PROJECT_DIR$/Calender/static/calendar.css" />
-        <option value="$PROJECT_DIR$/Calender/urls.py" />
         <option value="$PROJECT_DIR$/Calender/forms.py" />
-        <option value="$PROJECT_DIR$/Calender/templates/diary.html" />
         <option value="$PROJECT_DIR$/Calender/admin.py" />
         <option value="$PROJECT_DIR$/Calender/serializer.py" />
         <option value="$PROJECT_DIR$/Calender/models.py" />
         <option value="$PROJECT_DIR$/Calenderation/settings.py" />
         <option value="$PROJECT_DIR$/Calender/views.py" />
         <option value="$PROJECT_DIR$/Calender/templates/calender.html" />
+        <option value="$PROJECT_DIR$/Calender/templates/diary_detail.html" />
+        <option value="$PROJECT_DIR$/Calender/templates/diary.html" />
+        <option value="$PROJECT_DIR$/Calender/urls.py" />
       </list>
     </option>
   </component>
@@ -412,7 +415,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11394102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -597,10 +599,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Calender/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="36" column="87" lean-forward="true" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calender/templates/diary_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Calender/templates/diary.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -608,27 +628,17 @@
     <entry file="file://$PROJECT_DIR$/Calender/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
-          <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Calender/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="16" column="73" lean-forward="false" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Calender/templates/calender.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+        <state relative-caret-position="154">
+          <caret line="108" column="36" lean-forward="true" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
           <folding />
         </state>
       </provider>

@@ -13,7 +13,7 @@ import json
 class FullCalenderView(View):
     def get(self, request, *args, **kwargs):
         try:
-            this_datetime = request.GET['time']
+            this_datetime = request.GET['date']
             this_datetime = datetime.datetime.strptime(this_datetime, '%Y-%m-%d')
         except MultiValueDictKeyError:
             this_datetime = datetime.datetime.today()
@@ -29,11 +29,18 @@ class FullCalenderView(View):
                       {'this_year': this_year, 'this_month': this_month,
                        'start_day': start_day, 'end_date': end_date, 'diary_dict': json.dumps(diary_dict)})
 
-class DiaryView(View):
+class DiaryList(View):
     def get(self, request):
-        time = request.GET['time']
+        this_datetime = request.GET['date']
+        this_datetime = datetime.datetime.strptime(this_datetime, '%Y-%m-%d')
+        diary = Diary.objects.filter(date__year=this_datetime.year, date__month=this_datetime.month, date__day=this_datetime.day)
+        return render(request, 'diary.html', {'diary_list': diary, 'date': this_datetime})
+
+class DiaryDetail(View):
+    def get(self, request):
+        this_datetime = request.GET['date']
         form = DiaryForm()
-        return render(request, 'diary.html', {'time': time, 'form': form})
+        return render(request, 'diary_detail.html', {'date': this_datetime, 'form': form})
 
     def post(self, request):
         form = DiaryForm(request.POST)
@@ -43,4 +50,4 @@ class DiaryView(View):
             diary.modified_date = timezone.now()
             diary.date = date
             diary.save()
-            return redirect('/')
+            return redirect('/?time=' + date)

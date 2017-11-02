@@ -17,13 +17,13 @@
         <table class="ui celled table">
             <thead>
                 <tr>
+                    <th>일</th>
                     <th>월</th>
                     <th>화</th>
                     <th>수</th>
                     <th>목</th>
                     <th>금</th>
                     <th>토</th>
-                    <th>일</th>
                 </tr>
             </thead>
             <tbody id="calendarTableBody">
@@ -46,7 +46,7 @@
                 year = year - 1;
                 month = 12;
             }
-            var url = '/?time=' + year + '-' + month + '-1';
+            var url = '/?date=' + year + '-' + month + '-1';
             window.location = url;
         };
         function NextMonth(year, month) {
@@ -55,7 +55,7 @@
                 year = year + 1;
                 month = 1;
             }
-            var url = '/?time=' + year + '-' + month + '-1';
+            var url = '/?date=' + year + '-' + month + '-1';
             window.location = url
         };
         function WriteTitle(year, month) {
@@ -69,23 +69,26 @@
             var day = 1;
 
             for (var i = 0; i < 6; i++) {
+                if(day > {{end_date}}) {
+                    break;
+                }
                 var tr = document.createElement("tr");
                 for (var k = 0; k < 7; k++) {
                     var td = document.createElement("td");
-                    if(i*7 + k < {{start_day}} || day > {{end_date}}) {
+                    if(i*7 + k < {{start_day}} + 1 || day > {{end_date}}) {
 
                     } else {
 
                         var form = document.createElement("form");
                         form.setAttribute('method', 'get');
-                        form.setAttribute('action', '{% url 'Diary_detail' %}');
+                        form.setAttribute('action', '{% url 'Diary' %}');
 
                         var input = document.createElement("input");
                         input.setAttribute('type', 'hidden');
-                        input.setAttribute('name', 'time');
+                        input.setAttribute('name', 'date');
 
-                        var time = "{{this_year}}" + "-{{this_month}}" + "-" + day;
-                        input.setAttribute('value', time);
+                        var date = "{{this_year}}" + "-{{this_month}}" + "-" + day;
+                        input.setAttribute('value', date);
 
                         var button = document.createElement("button");
                         button.setAttribute('type', 'submit');
@@ -93,9 +96,13 @@
                         var text = document.createTextNode(day);
                         button.appendChild(text);
 
+                        var day_div = document.createElement("div");
+
+
                         form.appendChild(input);
                         form.appendChild(button);
-                        td.appendChild(form);
+                        day_div.appendChild(form);
+                        td.appendChild(day_div);
 
                         var div_diary = document.createElement("div");
                         diary = diary_dict[day]
