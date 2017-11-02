@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/semantic/semantic.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/calendar.css' %}">
     <header>
-        <h1>{{this_year}}년 {{this_month}} 월</h1>
+        <h1 id="title"></h1>
+        <button onclick="PrevMonth(year, month);">prev</button>
+        <button onclick="NextMonth(year, month);">next</button>
     </header>
     <section>
         <table class="ui celled table">
@@ -35,12 +37,31 @@
         crossorigin="anonymous"></script>
     <script src="semantic/dist/semantic.min.js"></script>
     <script type="text/javascript">
-        diary_dict = {{diary_dict|safe}};
-        function WriteTitle() {
-            var year = "{{this_year}}";
-            var month = "{{this_month}}";
-            document.write(year + "년 ");
-            document.write(month + "월");
+        var diary_dict = {{diary_dict|safe}};
+        var year = {{this_year}};
+        var month = {{this_month}};
+        function PrevMonth(year, month) {
+            month = month - 1;
+            if(month == 0) {
+                year = year - 1;
+                month = 12;
+            }
+            var url = '/?time=' + year + '-' + month + '-1';
+            window.location = url;
+        };
+        function NextMonth(year, month) {
+            month = month + 1;
+            if(month == 13) {
+                year = year + 1;
+                month = 1;
+            }
+            var url = '/?time=' + year + '-' + month + '-1';
+            window.location = url
+        };
+        function WriteTitle(year, month) {
+            var title = document.getElementById("title");
+            var text = document.createTextNode(year + ". " + month);
+            title.append(text);
         }
 
         function WriteCalendar() {
@@ -91,6 +112,7 @@
             }
 
         }
+        WriteTitle(year, month);
         WriteCalendar();
     </script>
 
